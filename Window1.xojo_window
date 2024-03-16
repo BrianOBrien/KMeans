@@ -224,24 +224,8 @@ End
 #tag EndWindow
 
 #tag WindowCode
-	#tag Property, Flags = &h0
-		centroids(-1) As KMeansModule.DataPoint
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		clusters As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		MyArray(-1) As kMeansModule.DataPoint
-	#tag EndProperty
-
-
-#tag EndWindowCode
-
-#tag Events RandomizeIt
-	#tag Event
-		Sub Action()
+	#tag Method, Flags = &h0
+		Sub PerformSegmenation()
 		  dim n as integer = 9 // 9 random samples
 		  dim m as integer = 3 // 3 segments
 		  dim regions() as integer = Array(3, 15, 27)
@@ -280,6 +264,30 @@ End
 		  for each dp as KMeansModule.DataPoint in myArray
 		    TestDataListbox.AddRow(dp.Features(0).ToText)
 		  next
+		  
+		End Sub
+	#tag EndMethod
+
+
+	#tag Property, Flags = &h0
+		centroids(-1) As KMeansModule.DataPoint
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		clusters As Dictionary
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		MyArray(-1) As kMeansModule.DataPoint
+	#tag EndProperty
+
+
+#tag EndWindowCode
+
+#tag Events RandomizeIt
+	#tag Event
+		Sub Action()
+		  PerformSegmenation
 		  
 		End Sub
 	#tag EndEvent
