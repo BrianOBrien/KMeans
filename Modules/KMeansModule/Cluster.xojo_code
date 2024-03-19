@@ -1,15 +1,46 @@
 #tag Class
 Protected Class Cluster
-	#tag Property, Flags = &h0
-		Centroid As DataPoint
-	#tag EndProperty
+	#tag Method, Flags = &h0
+		Sub AddMember(p as DataPoint)
+		  MemberPoints.Append(p)
+		  //Some thoughts...
+		  // What if p is already in the list?
+		  //Why not keep a sigma of the points as they are added so that ComputeCentroid only has to divide.
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ComputeCentroid() As DataPoint
+		  dim numberOfPoints as integer = MemberPoints.Ubound+1
+		  if numberOfPoints > 0 then
+		    
+		    dim nDimensions as integer = MemberPoints(0).Features.Ubound+1
+		    
+		    dim sigma as new DataPoint(nDimensions)
+		    dim c as new DataPoint(nDimensions)
+		    
+		    For pointNumber as integer=0 to numberOfPoints-1
+		      For feature as integer=0 to nDimensions
+		        sigma.Features(feature) = sigma.Features(feature) + MemberPoints(pointNumber).Features(feature)
+		      next
+		    next
+		    
+		    For feature as integer=0 to nDimensions-1
+		      c.Features(feature) = sigma.Features(feature) / numberOfPoints
+		    next
+		    return c
+		  else
+		    Raise New OutOfBoundsException
+		  end if
+		  //NOTREACHED
+		  
+		End Function
+	#tag EndMethod
+
 
 	#tag Property, Flags = &h0
-		ClusterLabel As Integer
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		MembersPoints(-1) As DataPoint
+		MemberPoints(-1) As DataPoint
 	#tag EndProperty
 
 
@@ -45,11 +76,6 @@ Protected Class Cluster
 			Visible=true
 			Group="Position"
 			InitialValue="0"
-			Type="Integer"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="ClusterLabel"
-			Group="Behavior"
 			Type="Integer"
 		#tag EndViewProperty
 	#tag EndViewBehavior

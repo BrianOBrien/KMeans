@@ -143,7 +143,7 @@ Begin Window Window1
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   143
+      Width           =   132
    End
    Begin TextField nClustersTextField
       AcceptTabs      =   False
@@ -225,7 +225,7 @@ End
 
 #tag WindowCode
 	#tag Method, Flags = &h0
-		Sub PerformSegmenation()
+		Sub GenerateRandomData()
 		  dim n as integer = 9 // 9 random samples
 		  dim m as integer = 3 // 3 segments
 		  dim regions() as integer = Array(3, 15, 27)
@@ -268,33 +268,8 @@ End
 		End Sub
 	#tag EndMethod
 
-
-	#tag Property, Flags = &h0
-		centroids(-1) As KMeansModule.DataPoint
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		clusters As Dictionary
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		MyArray(-1) As kMeansModule.DataPoint
-	#tag EndProperty
-
-
-#tag EndWindowCode
-
-#tag Events RandomizeIt
-	#tag Event
-		Sub Action()
-		  PerformSegmenation
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events SegmentIt
-	#tag Event
-		Sub Action()
+	#tag Method, Flags = &h0
+		Sub PerformSegmentation()
 		  // This is where the magic happens.
 		  // I am seeding the centroids as the default algorithm was to select k random seed points to begin.
 		  // I have some reservations about what happens when more than one random seeds happend to be actually inside
@@ -316,6 +291,61 @@ End
 		    next
 		  next
 		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub PerformSegmentation1()
+		  // This is where the magic happens.
+		  // I am seeding the centroids as the default algorithm was to select k random seed points to begin.
+		  // I have some reservations about what happens when more than one random seeds happend to be actually inside
+		  // a cluster.
+		  
+		  dim clusters(-1) as KMeansModule.Cluster = KMeans1(myArray, centroids)
+		  dim i as integer = 0
+		  
+		  TestDataListbox.DeleteAllRows
+		  
+		  for each clust as KMeansModule.Cluster in clusters
+		    for each dp as KMeansModule.DataPoint in clust.MemberPoints
+		      TestDataListbox.AddRow(dP.Features(0).ToText, i.ToText)
+		      i = i + 1
+		    next
+		  next
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+
+	#tag Property, Flags = &h0
+		centroids(-1) As KMeansModule.DataPoint
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		clusters As Dictionary
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		MyArray(-1) As kMeansModule.DataPoint
+	#tag EndProperty
+
+
+#tag EndWindowCode
+
+#tag Events RandomizeIt
+	#tag Event
+		Sub Action()
+		  GenerateRandomData
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events SegmentIt
+	#tag Event
+		Sub Action()
+		  PerformSegmentation
 		  
 		End Sub
 	#tag EndEvent

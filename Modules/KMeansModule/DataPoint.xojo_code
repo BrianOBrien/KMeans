@@ -1,8 +1,22 @@
 #tag Class
 Protected Class DataPoint
 	#tag Method, Flags = &h0
+		Sub Constructor(pt as DataPoint)
+		  Features = pt.features
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub Constructor(featuresArray() As Double)
 		  Features = featuresArray
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Constructor(nFeatures as integer)
+		  redim Features(nFeatures)
 		  
 		End Sub
 	#tag EndMethod
