@@ -21,7 +21,7 @@ Protected Class Cluster
 		    dim c as new DataPoint(nDimensions)
 		    
 		    For pointNumber as integer=0 to numberOfPoints-1
-		      For feature as integer=0 to nDimensions
+		      For feature as integer=0 to nDimensions-1
 		        sigma.Features(feature) = sigma.Features(feature) + MemberPoints(pointNumber).Features(feature)
 		      next
 		    next

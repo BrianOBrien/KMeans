@@ -76,25 +76,24 @@ Protected Module KMeansModule
 	#tag Method, Flags = &h0
 		Function KMeans(dataPoints() as DataPoint, centroids() as DataPoint) As Dictionary
 		  Dim clusters As Dictionary
-		  Dim converged as Boolean = true
+		  Dim converged as Boolean = False
 		  
-		  Do
+		  while (not converged)
 		    clusters = AssignClusters(dataPoints, centroids)
 		    Dim newCentroids() As DataPoint = UpdateCentroids(clusters)
 		    
 		    ' Check for convergence
-		    converged = True
-		    For i As Integer = 0 To UBound(centroids)
+		    For i As Integer = 0 To centroids.Ubound
 		      dim ed as double
 		      ed = EuclidianDistance(centroids(i), newCentroids(i))
-		      If ed > 0.001 Then
-		        converged = False
+		      If ed < 0.001 Then
+		        converged = True
 		        Exit For
 		      End If
 		    Next
 		    
 		    centroids = newCentroids
-		  Loop Until converged
+		  wend
 		  
 		  return clusters
 		  ' At this point, clusters contain the final assignments
@@ -104,23 +103,36 @@ Protected Module KMeansModule
 	#tag Method, Flags = &h0
 		Function KMeans1(dataPoints() as DataPoint, centroids() as DataPoint) As Cluster()
 		  Dim clusters(-1) as Cluster
-		  Dim converged as Boolean
+		  dim converged(-1) as Boolean
+		  dim AllConverged as Boolean
+		  
+		  redim converged(centroids.Ubound)
 		  
 		  Do
+		    
 		    clusters = AssignClusters1(dataPoints, centroids)
 		    Dim newCentroids() As DataPoint = UpdateCentroids1(clusters)
 		    
-		    converged = True
 		    For i As Integer = 0 To centroids.Ubound
 		      dim ed as double
 		      ed = EuclidianDistance(centroids(i), newCentroids(i))
-		      If ed > 0.001 Then
-		        converged = False
+		      If ed < 0.001 Then
+		        converged(i) = True
+		      else
+		        converged(i) = False
 		      end if
 		    next
 		    
+		    allConverged = true
+		    for i as integer = 0 to converged.Ubound
+		      if converged(i) = false then
+		        AllConverged = false
+		      end if 
+		    next
+		    
 		    centroids = newCentroids
-		  Loop until converged
+		    
+		  Loop until AllConverged
 		  
 		  return clusters
 		  

@@ -298,7 +298,7 @@ End
 	#tag Method, Flags = &h0
 		Sub PerformSegmentation1()
 		  // This is where the magic happens.
-		  // I am seeding the centroids as the default algorithm was to select k random seed points to begin.
+		  // I am seeding the centroids myself. The algorithm documentatin was to select k random seed points to begin.
 		  // I have some reservations about what happens when more than one random seeds happend to be actually inside
 		  // a cluster.
 		  
@@ -310,8 +310,8 @@ End
 		  for each clust as KMeansModule.Cluster in clusters
 		    for each dp as KMeansModule.DataPoint in clust.MemberPoints
 		      TestDataListbox.AddRow(dP.Features(0).ToText, i.ToText)
-		      i = i + 1
 		    next
+		    i = i + 1
 		  next
 		  
 		  
@@ -345,7 +345,7 @@ End
 #tag Events SegmentIt
 	#tag Event
 		Sub Action()
-		  PerformSegmentation
+		  PerformSegmentation1
 		  
 		End Sub
 	#tag EndEvent
