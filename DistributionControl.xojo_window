@@ -455,7 +455,8 @@ End
 		#tag Setter
 			Set
 			  dim txt as string = value.ToText
-			  MinTextField.Text
+			  MinTextField.Text = txt
+			  
 			  
 			End Set
 		#tag EndSetter
