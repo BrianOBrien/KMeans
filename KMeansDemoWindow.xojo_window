@@ -1,16 +1,16 @@
 #tag Window
-Begin Window Window1
+Begin Window KMeansDemoWindow
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   CloseButton     =   True
+   CloseButton     =   False
    Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
-   FullScreenButton=   False
+   FullScreenButton=   True
    HasBackColor    =   False
    Height          =   400
-   ImplicitInstance=   True
+   ImplicitInstance=   False
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
@@ -21,9 +21,9 @@ Begin Window Window1
    MinHeight       =   64
    MinimizeButton  =   True
    MinWidth        =   64
-   Placement       =   0
+   Placement       =   4
    Resizeable      =   True
-   Title           =   "Untitled"
+   Title           =   "KMeans Demo"
    Visible         =   True
    Width           =   600
    Begin Listbox TestDataListbox
@@ -74,7 +74,7 @@ Begin Window Window1
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   560
+      Width           =   166
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
