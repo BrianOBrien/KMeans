@@ -11,7 +11,7 @@ Begin ContainerControl ColorChooserContainerControl
    EraseBackground =   True
    HasBackColor    =   False
    Height          =   128
-   HelpTag         =   ""
+   HelpTag         =   "Click to choose a color or shade of grey for the cluster"
    InitialParent   =   ""
    Left            =   0
    LockBottom      =   False
@@ -22,7 +22,7 @@ Begin ContainerControl ColorChooserContainerControl
    TabPanelIndex   =   0
    TabStop         =   True
    Top             =   0
-   Transparent     =   True
+   Transparent     =   False
    UseFocusRing    =   False
    Visible         =   True
    Width           =   128
@@ -31,19 +31,58 @@ End
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  return true
 		  
+		End Function
+	#tag EndEvent
+
+	#tag Event
+		Sub MouseUp(X As Integer, Y As Integer)
+		  dim w as double = self.Width
+		  dim cx as double = X/w * 255.0 // what color index is x[0] to x[w]
+		  c = ThePalette(cx)
+		  
+		  ColorChosen(c)
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  if ThePalette.Ubound = -1 then
+		    MakePalette
+		  end if
+		  
+		  dim w, h as integer
+		  dim cx as uint8
+		  
+		  w = g.Width
+		  h = g.Height
+		  
+		  dim rw as double = w / 256
+		  for ix as integer=0 to w
+		    
+		    cx = ix/w * 255.0 // what color index is x[0] to x[w]
+		    
+		    g.ForeColor=ThePalette(cx)
+		    g.FillRect(ix,0,rw,h)
+		  next
+		  
+		  G.PenWidth = 1
+		  G.ForeColor = color.LightGray
+		  G.DrawRect(0,0, g.Width, g.Height)
 		End Sub
 	#tag EndEvent
 
 
 	#tag Method, Flags = &h0
-		Sub CColorPalette(grey As Boolean = false)
+		Sub MakePalette()
 		  Dim c As Color
 		  dim M_PI as double = acos(-1)
 		  redim ThePalette(-1)
 		  
-		  If grey Then
+		  If mgreyScale Then
 		    For i As Integer = 0 To 255
 		      c = RGB(i,i,i)
 		      ThePalette.Append(c)
@@ -97,6 +136,47 @@ End
 	#tag EndMethod
 
 
+	#tag Hook, Flags = &h0
+		Event ColorChosen(c as Color)
+	#tag EndHook
+
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mc
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mc = value
+			End Set
+		#tag EndSetter
+		c As Color
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  Return mgreyScale
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mgreyScale = value
+			End Set
+		#tag EndSetter
+		greyScale As Boolean
+	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private mc As Color = Color.black
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private mgreyScale As Boolean = false
+	#tag EndProperty
+
 	#tag Property, Flags = &h0
 		ThePalette(-1) As Color
 	#tag EndProperty
@@ -132,11 +212,6 @@ End
 		Group="Size"
 		InitialValue="300"
 		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="InitialParent"
-		Group="Position"
-		Type="String"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -177,12 +252,6 @@ End
 	#tag ViewProperty
 		Name="TabIndex"
 		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="TabPanelIndex"
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
@@ -270,13 +339,6 @@ End
 		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="EraseBackground"
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="Transparent"
 		Visible=true
 		Group="Behavior"
@@ -285,10 +347,40 @@ End
 		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="c"
+		Group="Behavior"
+		InitialValue="&c000000"
+		Type="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="greyScale"
+		Visible=true
+		Group="Behavior"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="DoubleBuffer"
 		Visible=true
 		Group="Windows Behavior"
 		InitialValue="False"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="InitialParent"
+		Group="Position"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabPanelIndex"
+		Group="Position"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="EraseBackground"
+		Group="Behavior"
+		InitialValue="True"
 		Type="Boolean"
 		EditorType="Boolean"
 	#tag EndViewProperty

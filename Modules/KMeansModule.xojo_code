@@ -1,35 +1,7 @@
 #tag Module
 Protected Module KMeansModule
 	#tag Method, Flags = &h21
-		Private Function AssignClusters(dataPoints() As DataPoint, centroids() As DataPoint) As Dictionary
-		  Dim clusters As New Dictionary
-		  
-		  For Each point As DataPoint In dataPoints
-		    Dim closestCentroidIndex As Integer = -1
-		    Dim minDistance As Double = -1
-		    
-		    For i As Integer = 0 To UBound(centroids)
-		      Dim distance As Double = KMeansModule.EuclidianDistance(point, centroids(i))
-		      
-		      If minDistance = -1 Or distance < minDistance Then
-		        minDistance = distance
-		        closestCentroidIndex = i
-		      End If
-		    Next
-		    
-		    If Not clusters.HasKey(closestCentroidIndex) Then
-		      clusters.Value(closestCentroidIndex) = New Dictionary
-		    End If
-		    
-		    Dictionary(clusters.Value(closestCentroidIndex)).Value(point) = True
-		  Next
-		  
-		  Return clusters
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function AssignClusters1(dataPoints() As DataPoint, centroids() As DataPoint) As Cluster()
+		Private Function AssignClusters(dataPoints() As DataPoint, centroids() As DataPoint) As Cluster()
 		  dim nClusters as integer = centroids.Ubound
 		  Dim clusters(-1) As Cluster
 		  
@@ -74,34 +46,7 @@ Protected Module KMeansModule
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function KMeans(dataPoints() as DataPoint, centroids() as DataPoint) As Dictionary
-		  Dim clusters As Dictionary
-		  Dim converged as Boolean = False
-		  
-		  while (not converged)
-		    clusters = AssignClusters(dataPoints, centroids)
-		    Dim newCentroids() As DataPoint = UpdateCentroids(clusters)
-		    
-		    ' Check for convergence
-		    For i As Integer = 0 To centroids.Ubound
-		      dim ed as double
-		      ed = EuclidianDistance(centroids(i), newCentroids(i))
-		      If ed < 0.001 Then
-		        converged = True
-		        Exit For
-		      End If
-		    Next
-		    
-		    centroids = newCentroids
-		  wend
-		  
-		  return clusters
-		  ' At this point, clusters contain the final assignments
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function KMeans1(dataPoints() as DataPoint, centroids() as DataPoint) As Cluster()
+		Function KMeans(dataPoints() as DataPoint, centroids() as DataPoint) As Cluster()
 		  Dim clusters(-1) as Cluster
 		  dim converged(-1) as Boolean
 		  dim AllConverged as Boolean
@@ -110,8 +55,8 @@ Protected Module KMeansModule
 		  
 		  Do
 		    
-		    clusters = AssignClusters1(dataPoints, centroids)
-		    Dim newCentroids() As DataPoint = UpdateCentroids1(clusters)
+		    clusters = AssignClusters(dataPoints, centroids)
+		    Dim newCentroids() As DataPoint = UpdateCentroids(clusters)
 		    
 		    For i As Integer = 0 To centroids.Ubound
 		      dim ed as double
@@ -140,38 +85,7 @@ Protected Module KMeansModule
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Function UpdateCentroids(clusters As Dictionary) As DataPoint()
-		  Dim centroids() As DataPoint
-		  
-		  For Each key As Integer In clusters.Keys
-		    
-		    Dim cluster As Dictionary = clusters.Value(key)
-		    
-		    Dim v() As Variant = cluster.Keys
-		    Dim numDimensions as Integer = DataPoint(v(0)).Features.Ubound + 1
-		    
-		    dim centroidFeatures() as Double
-		    reDim centroidFeatures(numDimensions - 1)
-		    
-		    For Each point As DataPoint In cluster.Keys
-		      For i As Integer = 0 To numDimensions - 1
-		        centroidFeatures(i) = centroidFeatures(i) + point.Features(i)
-		      Next
-		    Next
-		    
-		    For i As Integer = 0 To numDimensions - 1
-		      centroidFeatures(i) = centroidFeatures(i) / cluster.Count
-		    Next
-		    
-		    centroids.Append(New DataPoint(centroidFeatures))
-		  Next
-		  
-		  Return centroids
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function UpdateCentroids1(clusters() as Cluster) As DataPoint()
+		Private Function UpdateCentroids(clusters() as Cluster) As DataPoint()
 		  Dim centroids(-1) As DataPoint
 		  dim centroid as DataPoint
 		  for each cl as cluster in clusters

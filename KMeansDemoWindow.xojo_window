@@ -2,15 +2,15 @@
 Begin Window KMeansDemoWindow
    BackColor       =   &cFFFFFF00
    Backdrop        =   0
-   CloseButton     =   False
+   CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
    FullScreenButton=   True
    HasBackColor    =   False
-   Height          =   400
-   ImplicitInstance=   False
+   Height          =   572
+   ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
@@ -25,13 +25,13 @@ Begin Window KMeansDemoWindow
    Resizeable      =   True
    Title           =   "KMeans Demo"
    Visible         =   True
-   Width           =   600
+   Width           =   472
    Begin Listbox TestDataListbox
       AutoDeactivate  =   True
       AutoHideScrollbars=   True
       Bold            =   False
       Border          =   True
-      ColumnCount     =   2
+      ColumnCount     =   1
       ColumnsResizable=   True
       ColumnWidths    =   ""
       DataField       =   ""
@@ -44,18 +44,18 @@ Begin Window KMeansDemoWindow
       GridLinesVertical=   0
       HasHeading      =   True
       HeadingIndex    =   -1
-      Height          =   332
+      Height          =   498
       HelpTag         =   ""
       Hierarchical    =   False
       Index           =   -2147483648
       InitialParent   =   ""
-      InitialValue    =   "Value	Segment\r\n1\r\n2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n8\r\n9\r\n"
+      InitialValue    =   "Value	Segment\r\n	"
       Italic          =   False
       Left            =   20
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   True
+      LockRight       =   False
       LockTop         =   True
       RequiresSelection=   False
       Scope           =   2
@@ -74,119 +74,9 @@ Begin Window KMeansDemoWindow
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   166
+      Width           =   120
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
-   End
-   Begin PushButton RandomizeIt
-      AutoDeactivate  =   True
-      Bold            =   False
-      ButtonStyle     =   "0"
-      Cancel          =   False
-      Caption         =   "Randomize list"
-      Default         =   True
-      Enabled         =   True
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   248
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      Scope           =   2
-      TabIndex        =   1
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "Consolas"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   372
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   122
-   End
-   Begin Label Label1
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      Multiline       =   False
-      Scope           =   2
-      Selectable      =   False
-      TabIndex        =   2
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Number of Clusters"
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "Consolas"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   373
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   132
-   End
-   Begin TextField nClustersTextField
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   "##"
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   156
-      LimitText       =   0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Mask            =   "#"
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   3
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "3"
-      TextColor       =   &c00000000
-      TextFont        =   "Consolas"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   372
-      Transparent     =   False
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   80
    End
    Begin PushButton SegmentIt
       AutoDeactivate  =   True
@@ -196,16 +86,16 @@ Begin Window KMeansDemoWindow
       Caption         =   "Segment it"
       Default         =   False
       Enabled         =   True
-      Height          =   22
+      Height          =   27
       HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   382
+      Left            =   362
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   False
       Scope           =   0
       TabIndex        =   4
@@ -214,16 +104,155 @@ Begin Window KMeansDemoWindow
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   372
+      Top             =   538
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   90
+   End
+   Begin DistributionControl WindowLevel1
+      AcceptFocus     =   False
+      AcceptTabs      =   True
+      AutoDeactivate  =   True
+      BackColor       =   &cFFFFFF00
+      Backdrop        =   0
+      ClusterColor    =   &cFF000000
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      HasBackColor    =   False
+      Height          =   158
+      HelpTag         =   ""
+      InitialParent   =   ""
+      Left            =   152
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Mean            =   3
+      nSamples        =   10
+      Scope           =   0
+      TabIndex        =   5
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   28
+      Transparent     =   True
+      UseFocusRing    =   True
+      Variance        =   6
+      Visible         =   True
+      Width           =   304
+   End
+   Begin DistributionControl WindowLevel2
+      AcceptFocus     =   False
+      AcceptTabs      =   True
+      AutoDeactivate  =   True
+      BackColor       =   &cFFFFFF00
+      Backdrop        =   0
+      ClusterColor    =   &c00FF4000
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      HasBackColor    =   False
+      Height          =   158
+      HelpTag         =   ""
+      InitialParent   =   ""
+      Left            =   152
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Mean            =   15
+      nSamples        =   10
+      Scope           =   0
+      TabIndex        =   6
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   198
+      Transparent     =   True
+      UseFocusRing    =   True
+      Variance        =   6
+      Visible         =   True
+      Width           =   304
+   End
+   Begin DistributionControl WindowLevel3
+      AcceptFocus     =   False
+      AcceptTabs      =   True
+      AutoDeactivate  =   True
+      BackColor       =   &cFFFFFF00
+      Backdrop        =   0
+      ClusterColor    =   &c0080C000
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      HasBackColor    =   False
+      Height          =   158
+      HelpTag         =   ""
+      InitialParent   =   ""
+      Left            =   152
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      Mean            =   27
+      nSamples        =   10
+      Scope           =   0
+      TabIndex        =   7
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   368
+      Transparent     =   True
+      UseFocusRing    =   True
+      Variance        =   6
+      Visible         =   True
+      Width           =   304
    End
 End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Open()
+		  TestDataListbox.DeleteAllRows
+		  
+		End Sub
+	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub CollectData()
+		  dim d as kMeansModule.DataPoint
+		  redim centroids(-1)
+		  redim myArray(-1)
+		  
+		  for r as integer = 0 to TestDataListbox.LastIndex
+		    dim v(0) as double
+		    v(0) = TestDataListbox.Cell(r,0).CDbl
+		    d = new kMeansModule.DataPoint(v)
+		    myArray.append(d)
+		  next
+		  
+		  dim fa0(0) as Double
+		  dim fa1(0) as Double
+		  dim fa2(0) as Double
+		  
+		  fa0(0) = 3
+		  fa1(0) = 15
+		  fa2(0) = 27
+		  
+		  dim dp0 as new KMeansModule.DataPoint(fa0)
+		  dim dp1 as new KMeansModule.DataPoint(fa1)
+		  dim dp2 as new KMeansModule.DataPoint(fa2)
+		  
+		  centroids.Append(dp0)
+		  centroids.Append(dp1)
+		  centroids.Append(dp2)
+		  
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub GenerateRandomData()
 		  dim n as integer = 9 // 9 random samples
@@ -259,11 +288,7 @@ End
 		  centroids.Append(dp1)
 		  centroids.Append(dp2)
 		  
-		  //Update the view
-		  TestDataListbox.DeleteAllRows
-		  for each dp as KMeansModule.DataPoint in myArray
-		    TestDataListbox.AddRow(dp.Features(0).ToText)
-		  next
+		  
 		  
 		End Sub
 	#tag EndMethod
@@ -271,48 +296,35 @@ End
 	#tag Method, Flags = &h0
 		Sub PerformSegmentation()
 		  // This is where the magic happens.
-		  // I am seeding the centroids as the default algorithm was to select k random seed points to begin.
+		  // I am seeding the centroids myself. The algorithm documentatin was to select k random seed points to begin.
 		  // I have some reservations about what happens when more than one random seeds happend to be actually inside
 		  // a cluster.
 		  
-		  clusters = KMeans(myArray, centroids)
+		  CollectData
 		  
-		  dim datP as KMeansModule.DataPoint
-		  dim iclust as integer
+		  dim clusters(-1) as KMeansModule.Cluster = KMeans(myArray, centroids)
 		  
-		  TestDataListbox.DeleteAllRows
-		  for each clust as variant in clusters.Keys
-		    iclust = clust
-		    
-		    dim d as Dictionary = clusters.Value(clust)
-		    for each dp as Variant in d.Keys
-		      datP = KMeansModule.DataPoint(dp)
-		      TestDataListbox.AddRow(datP.Features(0).ToText, iclust.ToText)
-		    next
-		  next
-		  
+		  PlotHistogram(clusters, Palette)
 		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub PerformSegmentation1()
-		  // This is where the magic happens.
-		  // I am seeding the centroids myself. The algorithm documentatin was to select k random seed points to begin.
-		  // I have some reservations about what happens when more than one random seeds happend to be actually inside
-		  // a cluster.
+		Sub PlotHistogram(clusters() as KMeansModule.Cluster, Palette() as Color)
+		  dim histogram(-1) as integer
+		  redim histogram(clusters.Ubound)
 		  
-		  dim clusters(-1) as KMeansModule.Cluster = KMeans1(myArray, centroids)
 		  dim i as integer = 0
-		  
-		  TestDataListbox.DeleteAllRows
-		  
 		  for each clust as KMeansModule.Cluster in clusters
 		    for each dp as KMeansModule.DataPoint in clust.MemberPoints
-		      TestDataListbox.AddRow(dP.Features(0).ToText, i.ToText)
+		      histogram(i) = histogram(i) + 1
 		    next
 		    i = i + 1
 		  next
+		  
+		  dim w as new HistogramWindow
+		  w.Plot(histogram, color.green, Palette)
+		  w.Show()
 		  
 		  
 		End Sub
@@ -324,28 +336,69 @@ End
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		clusters As Dictionary
+		MyArray(-1) As kMeansModule.DataPoint
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
-		MyArray(-1) As kMeansModule.DataPoint
+		Palette(-1) As Color
 	#tag EndProperty
 
 
 #tag EndWindowCode
 
-#tag Events RandomizeIt
+#tag Events TestDataListbox
 	#tag Event
-		Sub Action()
-		  GenerateRandomData
+		Function CellBackgroundPaint(g As Graphics, row As Integer, column As Integer) As Boolean
+		  #Pragma BreakOnExceptions False
+		  try
+		    g.ForeColor = me.celltag(row, column)
+		    g.FillRect(0, 0, g.Width, g.Height)
+		  catch
+		  end
 		  
-		End Sub
+		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag Events SegmentIt
 	#tag Event
 		Sub Action()
-		  PerformSegmentation1
+		  PerformSegmentation
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events WindowLevel1
+	#tag Event
+		Sub SamplesGenerated(Samples() as Integer, c as color, min as integer, max as integer, mean as integer)
+		  for i as integer=0 to Samples.Ubound
+		    TestDataListbox.AddRow(Samples(i).ToText)
+		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
+		  next i
+		  Palette.Append(c)
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events WindowLevel2
+	#tag Event
+		Sub SamplesGenerated(Samples() as Integer, c as color, min as integer, max as integer, mean as integer)
+		  for i as integer=0 to Samples.Ubound
+		    TestDataListbox.AddRow(Samples(i).ToText)
+		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
+		  next i
+		  Palette.Append(c)
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events WindowLevel3
+	#tag Event
+		Sub SamplesGenerated(Samples() as Integer, c as color, min as integer, max as integer, mean as integer)
+		  for i as integer=0 to Samples.Ubound
+		    TestDataListbox.AddRow(Samples(i).ToText)
+		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
+		  next i
+		  Palette.Append(c)
 		  
 		End Sub
 	#tag EndEvent

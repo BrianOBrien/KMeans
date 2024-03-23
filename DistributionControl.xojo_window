@@ -10,7 +10,7 @@ Begin ContainerControl DistributionControl
    Enabled         =   True
    EraseBackground =   True
    HasBackColor    =   False
-   Height          =   136
+   Height          =   158
    HelpTag         =   ""
    InitialParent   =   ""
    Left            =   0
@@ -26,49 +26,6 @@ Begin ContainerControl DistributionControl
    UseFocusRing    =   False
    Visible         =   True
    Width           =   304
-   Begin TextField MinTextField
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
-      Bold            =   False
-      Border          =   True
-      CueText         =   ""
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Format          =   ""
-      Height          =   22
-      HelpTag         =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   20
-      LimitText       =   0
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Mask            =   "#."
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   0
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "2"
-      TextColor       =   &c00000000
-      TextFont        =   "Consolas"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   37
-      Transparent     =   False
-      Underline       =   False
-      UseFocusRing    =   True
-      Visible         =   True
-      Width           =   80
-   End
    Begin TextField MeanTextField
       AcceptTabs      =   False
       Alignment       =   0
@@ -86,33 +43,33 @@ Begin ContainerControl DistributionControl
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   114
+      Left            =   20
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
       LockRight       =   True
       LockTop         =   True
-      Mask            =   "#."
+      Mask            =   ""
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "7"
+      Text            =   ""
       TextColor       =   &c00000000
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   37
+      Top             =   26
       Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
       Width           =   80
    End
-   Begin TextField MaxTextField
+   Begin TextField VarianceTextField
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
@@ -130,66 +87,31 @@ Begin ContainerControl DistributionControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   202
+      Left            =   113
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Mask            =   "#."
+      Mask            =   ""
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "12"
+      Text            =   ""
       TextColor       =   &c00000000
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   37
+      Top             =   26
       Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
       Width           =   80
-   End
-   Begin Label MinLabel
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   3
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Min"
-      TextAlign       =   0
-      TextColor       =   &c00000000
-      TextFont        =   "Consolas"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   17
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   37
    End
    Begin Label MeanLabel
       AutoDeactivate  =   True
@@ -202,7 +124,7 @@ Begin ContainerControl DistributionControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   136
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
@@ -215,18 +137,18 @@ Begin ContainerControl DistributionControl
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Mean"
-      TextAlign       =   1
+      TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   17
+      Top             =   6
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   37
+      Width           =   81
    End
-   Begin Label MaxLabel
+   Begin Label VarianceLabel
       AutoDeactivate  =   True
       Bold            =   False
       DataField       =   ""
@@ -237,7 +159,7 @@ Begin ContainerControl DistributionControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   244
+      Left            =   112
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   False
@@ -249,52 +171,17 @@ Begin ContainerControl DistributionControl
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Max"
-      TextAlign       =   2
+      Text            =   "Window Width"
+      TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   17
-      Transparent     =   False
+      Top             =   6
+      Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   40
-   End
-   Begin Label TitleLabel
-      AutoDeactivate  =   True
-      Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   101
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   6
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Dstribution"
-      TextAlign       =   1
-      TextColor       =   &c00000000
-      TextFont        =   "Consolas"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   0
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   100
+      Width           =   83
    End
    Begin Label NumberOfSamplesLabel
       AutoDeactivate  =   True
@@ -307,7 +194,7 @@ Begin ContainerControl DistributionControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   20
+      Left            =   205
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -325,7 +212,7 @@ Begin ContainerControl DistributionControl
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   71
+      Top             =   6
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -348,26 +235,26 @@ Begin ContainerControl DistributionControl
       HelpTag         =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   112
+      Left            =   205
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Mask            =   "#"
+      Mask            =   "#####"
       Password        =   False
       ReadOnly        =   False
       Scope           =   0
       TabIndex        =   8
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "100"
+      Text            =   ""
       TextColor       =   &c00000000
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   69
+      Top             =   26
       Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
@@ -387,7 +274,7 @@ Begin ContainerControl DistributionControl
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   204
+      Left            =   113
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -400,13 +287,48 @@ Begin ContainerControl DistributionControl
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   69
+      Top             =   116
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   171
+   End
+   Begin Label ColorChooserLabel
+      AutoDeactivate  =   True
+      Bold            =   False
+      DataField       =   ""
+      DataSource      =   ""
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   21
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   10
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "Color"
+      TextAlign       =   0
+      TextColor       =   &c00000000
+      TextFont        =   "Consolas"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   58
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
    End
-   Begin Label ColorChooserLabel
+   Begin Label ColorChooserLabel1
       AutoDeactivate  =   True
       Bold            =   False
       DataField       =   ""
@@ -426,46 +348,258 @@ Begin ContainerControl DistributionControl
       Multiline       =   False
       Scope           =   0
       Selectable      =   False
-      TabIndex        =   11
+      TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "Color"
+      Text            =   "Grey"
       TextAlign       =   0
       TextColor       =   &c00000000
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   103
+      Top             =   86
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
    End
+   Begin ColorChooserContainerControl ColourChooserContainerControl
+      AcceptFocus     =   False
+      AcceptTabs      =   True
+      AutoDeactivate  =   True
+      BackColor       =   &cFFFFFF00
+      Backdrop        =   0
+      c               =   &c00000000
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      greyScale       =   False
+      HasBackColor    =   False
+      Height          =   20
+      HelpTag         =   ""
+      InitialParent   =   ""
+      Left            =   112
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   14
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   58
+      Transparent     =   False
+      UseFocusRing    =   False
+      Visible         =   True
+      Width           =   174
+   End
+   Begin ColorChooserContainerControl GreyscaleChooserContainerControl
+      AcceptFocus     =   False
+      AcceptTabs      =   True
+      AutoDeactivate  =   True
+      BackColor       =   &cFFFFFF00
+      Backdrop        =   0
+      c               =   &c00000000
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      greyScale       =   True
+      HasBackColor    =   False
+      Height          =   20
+      HelpTag         =   ""
+      InitialParent   =   ""
+      Left            =   112
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   15
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   86
+      Transparent     =   False
+      UseFocusRing    =   False
+      Visible         =   True
+      Width           =   174
+   End
+   Begin Rectangle CluserColorViewRect
+      AutoDeactivate  =   True
+      BorderWidth     =   1
+      BottomRightColor=   &c00000000
+      Enabled         =   True
+      FillColor       =   &cFFFFFF00
+      Height          =   16
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   85
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   16
+      TabPanelIndex   =   0
+      Top             =   74
+      TopLeftColor    =   &c00000000
+      Transparent     =   False
+      Visible         =   True
+      Width           =   16
+   End
 End
 #tag EndWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Open()
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  G.PenWidth = 1
+		  G.ForeColor = color.LightGray
+		  G.DrawRect(0,0, g.Width, g.Height)
+		End Sub
+	#tag EndEvent
+
+
+	#tag Hook, Flags = &h0
+		Event SamplesGenerated(Samples() as Integer, c as color, min as integer, max as integer, mean as integer)
+	#tag EndHook
+
+
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
 			Get
-			  dim dbl as double
-			  dbl = MinTextField.Text.CDbl
+			  Return mClusterColor
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  mClusterColor = value
+			End Set
+		#tag EndSetter
+		ClusterColor As Color
+	#tag EndComputedProperty
+
+	#tag Property, Flags = &h21
+		Private mClusterColor As Color = Color.blue
+	#tag EndProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim m as integer
+			  m = MeanTextField.Text.Val
+			  Return(m)
+			  
 			End Get
 		#tag EndGetter
 		#tag Setter
 			Set
 			  dim txt as string = value.ToText
-			  MinTextField.Text = txt
+			  MeanTextField.Text = txt
 			  
 			  
 			End Set
 		#tag EndSetter
-		min As double
+		Mean As Integer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim ns as integer
+			  ns = NSamplesTextField.Text.Val
+			  return (ns)
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  dim txt as string = value.ToText
+			  NSamplesTextField.Text = txt
+			  
+			End Set
+		#tag EndSetter
+		nSamples As Integer
+	#tag EndComputedProperty
+
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  dim w as integer
+			  w = VarianceTextField.Text.val
+			  return(w)
+			  
+			  
+			End Get
+		#tag EndGetter
+		#tag Setter
+			Set
+			  dim txt as string = value.ToText
+			  VarianceTextField.Text = txt
+			  
+			End Set
+		#tag EndSetter
+		Variance As Integer
 	#tag EndComputedProperty
 
 
 #tag EndWindowCode
 
+#tag Events GeneratePushButton
+	#tag Event
+		Sub Action()
+		  dim nsamples as integer = NSamplesTextField.Text.Val
+		  dim variance as integer = VarianceTextField.Text.Val
+		  dim mean as integer = MeanTextField.Text.Val
+		  
+		  dim min as integer = mean - variance / 2
+		  dim max as integer = mean + variance / 2
+		  
+		  if (nsamples > 0) then
+		    dim Samples(-1) as Integer
+		    Redim Samples(nsamples-1) //-1 because 0 to n-1
+		    
+		    for i as integer = 0 to nsamples-1
+		      Samples(i) = App.MyRandom.InRange(min, max)
+		    next
+		    
+		    SamplesGenerated(Samples, ClusterColor, min, max, mean)
+		    
+		  end if
+		  
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ColourChooserContainerControl
+	#tag Event
+		Sub ColorChosen(c as Color)
+		  CluserColorViewRect.FillColor = c
+		  CluserColorViewRect.Refresh
+		  ClusterColor = c
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events GreyscaleChooserContainerControl
+	#tag Event
+		Sub ColorChosen(c as Color)
+		  CluserColorViewRect.FillColor = c
+		  CluserColorViewRect.Refresh
+		  ClusterColor = c
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Name"
@@ -494,11 +628,6 @@ End
 		Group="Size"
 		InitialValue="300"
 		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="InitialParent"
-		Group="Position"
-		Type="String"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Left"
@@ -539,12 +668,6 @@ End
 	#tag ViewProperty
 		Name="TabIndex"
 		Visible=true
-		Group="Position"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="TabPanelIndex"
 		Group="Position"
 		InitialValue="0"
 		Type="Integer"
@@ -632,19 +755,37 @@ End
 		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="EraseBackground"
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="Transparent"
 		Visible=true
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
 		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Mean"
+		Visible=true
+		Group="Behavior"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Variance"
+		Visible=true
+		Group="Behavior"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="nSamples"
+		Visible=true
+		Group="Behavior"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ClusterColor"
+		Visible=true
+		Group="Behavior"
+		InitialValue="&c000000"
+		Type="Color"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="DoubleBuffer"
@@ -655,8 +796,21 @@ End
 		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="min"
+		Name="InitialParent"
+		Group="Position"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="TabPanelIndex"
+		Group="Position"
+		InitialValue="0"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="EraseBackground"
 		Group="Behavior"
-		Type="double"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
 	#tag EndViewProperty
 #tag EndViewBehavior
