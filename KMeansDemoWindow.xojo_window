@@ -1,20 +1,20 @@
 #tag Window
 Begin Window KMeansDemoWindow
-   BackColor       =   &cFFFFFF00
+   BackColor       =   &c80808000
    Backdrop        =   0
    CloseButton     =   True
    Compatibility   =   ""
    Composite       =   False
    Frame           =   0
    FullScreen      =   False
-   FullScreenButton=   True
+   FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   572
+   Height          =   916
    ImplicitInstance=   True
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
-   MaximizeButton  =   True
+   MaximizeButton  =   False
    MaxWidth        =   32000
    MenuBar         =   634961919
    MenuBarVisible  =   True
@@ -25,7 +25,7 @@ Begin Window KMeansDemoWindow
    Resizeable      =   True
    Title           =   "KMeans Demo"
    Visible         =   True
-   Width           =   472
+   Width           =   1432
    Begin Listbox TestDataListbox
       AutoDeactivate  =   True
       AutoHideScrollbars=   True
@@ -44,14 +44,14 @@ Begin Window KMeansDemoWindow
       GridLinesVertical=   0
       HasHeading      =   True
       HeadingIndex    =   -1
-      Height          =   498
+      Height          =   876
       HelpTag         =   ""
       Hierarchical    =   False
       Index           =   -2147483648
       InitialParent   =   ""
       InitialValue    =   "Value	Segment\r\n	"
       Italic          =   False
-      Left            =   20
+      Left            =   336
       LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
@@ -69,46 +69,14 @@ Begin Window KMeansDemoWindow
       TextFont        =   "Consolas"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   28
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       UseFocusRing    =   True
       Visible         =   True
-      Width           =   120
+      Width           =   124
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
-   End
-   Begin PushButton SegmentIt
-      AutoDeactivate  =   True
-      Bold            =   False
-      ButtonStyle     =   "0"
-      Cancel          =   False
-      Caption         =   "Segment it"
-      Default         =   False
-      Enabled         =   True
-      Height          =   27
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   362
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   False
-      Scope           =   0
-      TabIndex        =   4
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "Consolas"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   538
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   90
    End
    Begin DistributionControl WindowLevel1
       AcceptFocus     =   False
@@ -116,32 +84,99 @@ Begin Window KMeansDemoWindow
       AutoDeactivate  =   True
       BackColor       =   &cFFFFFF00
       Backdrop        =   0
-      ClusterColor    =   &cFF000000
+      ClusterColor    =   &c80FFFF00
+      ClusterName     =   "Air"
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
       HasBackColor    =   False
-      Height          =   158
+      Height          =   136
       HelpTag         =   ""
       InitialParent   =   ""
-      Left            =   152
+      Left            =   20
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Mean            =   3
+      Mean            =   -1000
       nSamples        =   10
       Scope           =   0
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   28
+      Top             =   20
       Transparent     =   True
       UseFocusRing    =   True
       Variance        =   6
       Visible         =   True
       Width           =   304
+   End
+   Begin PlotArea DataHistogram
+      AcceptFocus     =   False
+      AcceptTabs      =   False
+      AutoDeactivate  =   True
+      AxisColor       =   &c00000000
+      Backdrop        =   0
+      BarColor        =   &c00000000
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      Height          =   432
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   472
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      PType           =   "PlotType.Line"
+      Scope           =   0
+      ShowAxis        =   True
+      ShowTicks       =   True
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   20
+      Transparent     =   True
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   940
+   End
+   Begin PlotArea KMeansConvergencePlot
+      AcceptFocus     =   False
+      AcceptTabs      =   False
+      AutoDeactivate  =   True
+      AxisColor       =   &c00000000
+      Backdrop        =   0
+      BarColor        =   &c00000000
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      Height          =   432
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   472
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   False
+      PType           =   "PlotType.Line"
+      Scope           =   0
+      ShowAxis        =   True
+      ShowTicks       =   True
+      TabIndex        =   12
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   464
+      Transparent     =   True
+      UseFocusRing    =   True
+      Visible         =   True
+      Width           =   940
    End
    Begin DistributionControl WindowLevel2
       AcceptFocus     =   False
@@ -149,27 +184,28 @@ Begin Window KMeansDemoWindow
       AutoDeactivate  =   True
       BackColor       =   &cFFFFFF00
       Backdrop        =   0
-      ClusterColor    =   &c00FF4000
+      ClusterColor    =   &cF7F38800
+      ClusterName     =   "Fat"
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
       HasBackColor    =   False
-      Height          =   158
+      Height          =   136
       HelpTag         =   ""
       InitialParent   =   ""
-      Left            =   152
-      LockBottom      =   True
+      Left            =   20
+      LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
-      Mean            =   15
+      Mean            =   -100
       nSamples        =   10
       Scope           =   0
-      TabIndex        =   6
+      TabIndex        =   13
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   198
+      Top             =   168
       Transparent     =   True
       UseFocusRing    =   True
       Variance        =   6
@@ -182,27 +218,130 @@ Begin Window KMeansDemoWindow
       AutoDeactivate  =   True
       BackColor       =   &cFFFFFF00
       Backdrop        =   0
-      ClusterColor    =   &c0080C000
+      ClusterColor    =   &c94C4EB00
+      ClusterName     =   "Water"
       DoubleBuffer    =   False
       Enabled         =   True
       EraseBackground =   True
       HasBackColor    =   False
-      Height          =   158
+      Height          =   136
       HelpTag         =   ""
       InitialParent   =   ""
-      Left            =   152
-      LockBottom      =   True
+      Left            =   20
+      LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
-      LockTop         =   False
-      Mean            =   27
+      LockTop         =   True
+      Mean            =   0
       nSamples        =   10
       Scope           =   0
-      TabIndex        =   7
+      TabIndex        =   14
       TabPanelIndex   =   0
       TabStop         =   True
-      Top             =   368
+      Top             =   316
+      Transparent     =   True
+      UseFocusRing    =   True
+      Variance        =   6
+      Visible         =   True
+      Width           =   304
+   End
+   Begin DistributionControl WindowLevel4
+      AcceptFocus     =   False
+      AcceptTabs      =   True
+      AutoDeactivate  =   True
+      BackColor       =   &cFFFFFF00
+      Backdrop        =   0
+      ClusterColor    =   &cC0160300
+      ClusterName     =   "Soft Tissue"
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      HasBackColor    =   False
+      Height          =   136
+      HelpTag         =   ""
+      InitialParent   =   ""
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Mean            =   60
+      nSamples        =   10
+      Scope           =   0
+      TabIndex        =   15
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   464
+      Transparent     =   True
+      UseFocusRing    =   True
+      Variance        =   6
+      Visible         =   True
+      Width           =   304
+   End
+   Begin DistributionControl WindowLevel5
+      AcceptFocus     =   False
+      AcceptTabs      =   True
+      AutoDeactivate  =   True
+      BackColor       =   &cFFFFFF00
+      Backdrop        =   0
+      ClusterColor    =   &cD2D2D500
+      ClusterName     =   "Bone"
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      HasBackColor    =   False
+      Height          =   136
+      HelpTag         =   ""
+      InitialParent   =   ""
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Mean            =   400
+      nSamples        =   10
+      Scope           =   0
+      TabIndex        =   16
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   612
+      Transparent     =   True
+      UseFocusRing    =   True
+      Variance        =   6
+      Visible         =   True
+      Width           =   304
+   End
+   Begin DistributionControl WindowLevel6
+      AcceptFocus     =   False
+      AcceptTabs      =   True
+      AutoDeactivate  =   True
+      BackColor       =   &cFFFFFF00
+      Backdrop        =   0
+      ClusterColor    =   &c16448900
+      ClusterName     =   "Metal"
+      DoubleBuffer    =   False
+      Enabled         =   True
+      EraseBackground =   True
+      HasBackColor    =   False
+      Height          =   136
+      HelpTag         =   ""
+      InitialParent   =   ""
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Mean            =   1000
+      nSamples        =   10
+      Scope           =   0
+      TabIndex        =   17
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Top             =   760
       Transparent     =   True
       UseFocusRing    =   True
       Variance        =   6
@@ -322,11 +461,10 @@ End
 		    i = i + 1
 		  next
 		  
-		  dim w as new HistogramWindow
-		  w.Plot(histogram, color.green, Palette)
-		  w.Show()
-		  
-		  
+		  'dim w as new HistogramWindow
+		  'w.Plot(histogram, color.black, Palette)
+		  'w.Show()
+		  '
 		End Sub
 	#tag EndMethod
 
@@ -359,14 +497,6 @@ End
 		End Function
 	#tag EndEvent
 #tag EndEvents
-#tag Events SegmentIt
-	#tag Event
-		Sub Action()
-		  PerformSegmentation
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events WindowLevel1
 	#tag Event
 		Sub SamplesGenerated(Samples() as Integer, c as color, min as integer, max as integer, mean as integer)
@@ -374,8 +504,9 @@ End
 		    TestDataListbox.AddRow(Samples(i).ToText)
 		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
 		  next i
-		  Palette.Append(c)
 		  
+		  Palette.Append(c)
+		  DataHistogram.Plot(Samples, Color.Teal, Palette, PlotArea.PlotType.Bar)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -386,8 +517,9 @@ End
 		    TestDataListbox.AddRow(Samples(i).ToText)
 		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
 		  next i
-		  Palette.Append(c)
 		  
+		  Palette.Append(c)
+		  DataHistogram.Plot(Samples, Color.Teal, Palette, PlotArea.PlotType.Bar)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -397,9 +529,49 @@ End
 		  for i as integer=0 to Samples.Ubound
 		    TestDataListbox.AddRow(Samples(i).ToText)
 		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
+		    palette.Append(c)
 		  next i
-		  Palette.Append(c)
 		  
+		  DataHistogram.Plot(Samples, Color.Teal, Palette, PlotArea.PlotType.Bar)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events WindowLevel4
+	#tag Event
+		Sub SamplesGenerated(Samples() as Integer, c as color, min as integer, max as integer, mean as integer)
+		  for i as integer=0 to Samples.Ubound
+		    TestDataListbox.AddRow(Samples(i).ToText)
+		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
+		    palette.Append(c)
+		  next i
+		  
+		  DataHistogram.Plot(Samples, Color.Teal, Palette, PlotArea.PlotType.Bar)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events WindowLevel5
+	#tag Event
+		Sub SamplesGenerated(Samples() as Integer, c as color, min as integer, max as integer, mean as integer)
+		  for i as integer=0 to Samples.Ubound
+		    TestDataListbox.AddRow(Samples(i).ToText)
+		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
+		    palette.Append(c)
+		  next i
+		  
+		  DataHistogram.Plot(Samples, Color.Teal, Palette, PlotArea.PlotType.Bar)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events WindowLevel6
+	#tag Event
+		Sub SamplesGenerated(Samples() as Integer, c as color, min as integer, max as integer, mean as integer)
+		  for i as integer=0 to Samples.Ubound
+		    TestDataListbox.AddRow(Samples(i).ToText)
+		    TestDataListbox.CellTag(TestDataListbox.ListCount-1,0) = c
+		    palette.Append(c)
+		  next i
+		  
+		  DataHistogram.Plot(Samples, Color.Teal, Palette, PlotArea.PlotType.Bar)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
